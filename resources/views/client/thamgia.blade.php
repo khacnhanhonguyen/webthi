@@ -15,7 +15,7 @@
         <div class="col-md-9">
             <h1 class="mt-4"><b>{{$deThi->tieu_de}}</b></h1>
             <a class="btn btn-primary" href="">Thi chính thức<span class="glyphicon glyphicon-chevron-right"></span></a>
-            <a class="btn btn-success" href="">Thi thửc<span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn btn-success" href="{{ route('route.thithu.hien', ['de_thi_id'=>$deThi->id]) }}">Thi thửc<span class="glyphicon glyphicon-chevron-right"></span></a>
             <a class="btn btn-info" href="">Xem thông tin cuộc thi<span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
         <div class="break"></div>
