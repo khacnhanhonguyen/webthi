@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\trangchuClientController;
 use App\Http\Controllers\loginController;
@@ -15,7 +16,9 @@ use App\Http\Controllers\loginController;
 */
 
 Route::get('/', [trangchuClientController::class, 'showtrangchu'])->name('route.dashboard');
+Route::get('/thamgia', [trangchuClientController::class, 'showtrangthamgia'])->name('route.thamgia');
 
+Route::get('/admin/dashboard', [AdminController::class, 'showtrangadmin'])->middleware('checkRole:1')->name('admin.dashboard');
 
 Route::prefix('login')->middleware('mychecklogin')->group(function () {
     Route::get('/', [loginController::class, 'showtranglogin'])->name('route.login');
@@ -24,3 +27,6 @@ Route::prefix('login')->middleware('mychecklogin')->group(function () {
     Route::post('/create-account-process', [loginController::class, 'create'])->name('route.login.create.process');
 });
 Route::get('/logout', [loginController::class, 'logoutProcess'])->name('route.logout');
+// routes/web.php
+
+

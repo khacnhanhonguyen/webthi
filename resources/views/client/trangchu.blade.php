@@ -1,9 +1,51 @@
 @extends('client.master')
 @section('content')
-    <div class="banner">
-        <img  src="trangchu/wallpaperflare.com_wallpaper_1.jpg" alt="" >
+    <div class="top-news">
+        <div class="container">
+            <!-- slider -->
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php $i = 0; ?>
+                    @foreach ($dethis as $slide)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"
+                            @if ($i==0)
+                                class="active"
+                            @endif
+                        ></li>
+                        <?php $i++; ?>
+                    @endforeach
+                </ol>
+                <div class="carousel-inner">
+                    <?php $i = 0; ?>
+                    @foreach ($dethis as $slide)
+                        <div
+                        @if ($i==0)
+                            class="carousel-item active"
+                        @else
+                            class="carousel-item"
+                        @endif>
+                            <a href="https://{{$slide->link}}">
+                                <img class="d-block w-100" src="images/{{$slide->anh_de_thi}}" height="500px" alt="{{$slide->tieu_de}}">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>{{$slide->tieu_de}}</h5>
+                                </div>
+                            </a>
+                        </div>
+                        <?php $i++; ?>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- end slide -->
+        </div>
     </div>
-
     <div>
         <div class="thele columnhome">
         <div class="header-tit"><a href="#">Thể lệ cuộc thi</a></div>
