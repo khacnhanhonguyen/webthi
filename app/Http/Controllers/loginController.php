@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Requests\registerRequest;
+use Illuminate\Auth\Notifications\VerifyEmail;
 
 class loginController extends Controller
 {
@@ -43,7 +44,7 @@ class loginController extends Controller
 
             // Kiểm tra nếu là user với quyền 0
             elseif ($userRole == 0) {
-                return redirect()->route('route.dashboard');
+                return redirect()->route('route.dashboard.login');
             }
         }
 
@@ -69,7 +70,7 @@ class loginController extends Controller
         $user->email=$request->cemail;
         $user->password=bcrypt($request->cpassword);
         $user->save();
-
+        $user->notify(new VerifyEmail($user));
         // Redirect to the home page or wherever you want
         return redirect()->route('route.login')->with('Thongbao','Tạo tài khoản thành công.');
     }
