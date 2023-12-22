@@ -15,9 +15,14 @@ class thithuController extends Controller
         $deThi = DeThi::find($de_thi_id);
 
         // Assuming you have a method in your model to get random questions
-        $randomQuestions = $deThi->getRandomQuestions(40);
+        $randomQuestions = CauHoi::where('de_thi_id', $de_thi_id)
+            ->inRandomOrder()
+            ->limit(40)
+            ->get();
 
-        return view('practice_test', [
+
+
+        return view('client.thithu', [
             'deThi' => $deThi,
             'questions' => $randomQuestions,
         ]);

@@ -16,9 +16,12 @@ class CauHoi extends Model
     {
         return $this->belongsTo(DeThi::class);
     }
-
-    public function cauTraLoi()
+    public function cauTraLois()
     {
-        return $this->hasMany(CauTraLoi::class);
+        return $this->hasMany(CauTraLoi::class, 'cau_hoi_id');
+    }
+    public function cauHois()
+    {
+        return $this->hasMany(CauHoi::class, 'de_thi_id');
     }
 }
