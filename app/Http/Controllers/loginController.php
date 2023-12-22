@@ -29,11 +29,24 @@ class loginController extends Controller
             'password' => ['required'] ,
         ]);
 
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('route.dashboard');
+            // Kiểm tra giá trị cột "phanquyen"
+            $userRole = Auth::user()->phanquyen;
+
+            // Kiểm tra nếu là admin
+            if ($userRole == 1) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            // Kiểm tra nếu là user với quyền 0
+            elseif ($userRole == 0) {
+                return redirect()->route('route.dashboard');
+            }
         }
+
         return back()->withErrors([
             'email' => 'Email hoặc Mật Khẩu không đúng.',
         ]);

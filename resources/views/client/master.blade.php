@@ -14,11 +14,10 @@
     <div class="menu-top">
       <div class="left">
         <ul>
-          <li><a href="#"><img style="width: 25px;" src="trangchu/home.png"></a></li>
-          <li><a href="#">Trang chủ</a></li>
+          <li><a href="{{ route('route.dashboard') }}"><img style="width: 25px;" src="trangchu/home.png"></a></li>
+          <li><a href="{{ route('route.dashboard') }}">Trang chủ</a></li>
           <li><a href="#">Giới thiệu</a></li>
-          <li><a href="#">Thông tin cuộc thi</a></li>
-          <li><a href="#">Tham gia</a></li>
+          <li><a href="{{ route('route.thamgia') }}">Tham gia</a></li>
           <li><a href="">Kết quả cuộc thi</a></li>
         </ul>
       </div>
