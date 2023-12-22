@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .banner img {
+    padding-top: 10px;
+    width: 100%;
+    height: 500px;
+}
+#menu {
+    background-color: #170099; /* Màu đỏ */
+  }
+
+  #menu .menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  #menu .menu-top .left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  #menu .menu-top .left ul li {
+    margin-right: 10px;
+  }
+
+  #menu .menu-top .left ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  #menu .menu-top .left ul li a:hover {
+    text-decoration: underline;
+  }
+
+  #menu .menu-top .right {
+    display: flex;
+    align-items: center;
+  }
+
+  #menu .menu-top .right .hotline {
+    color: #fff;
+    margin-right: 10px;
+  }
+
+  #menu .menu-top .right .login a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  #menu .menu-top .right .login a:hover {
+    text-decoration: underline;
+  }
+
+  #menu .menu-top .right .login i {
+    margin-right: 5px;
+  }
+
+  .columnhome {
+    padding-top: 10px;
+	width: 830px;
+}
+.thele{
+	float:left;
+	margin-right:17px;
+}
+.tintuc{
+	float:right;
+}
+.header-tit {
+	background: #170099;
+	text-align: center;
+	/* height: 47px; */
+	color: #fff;
+	text-transform: uppercase;
+	font-family: arial;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 15px;
+	border-radius: 5px 5px 0px 0px;
+}
+.header-tit a {
+	/* margin-top: 21px; */
+	/* float: left; */
+	text-align: center;
+	padding: 10px;
+	color: #fff;
+}
+#footer {
+	margin-top: 10px;
+}
+#footer {
+	background: url(/cuocthi/img/footer.png) repeat-x top center;
+	height: 152px;
+	margin-top: -20px;
+}
+#footer .footer-c {
+	width: 1000px;
+	margin: 0 auto;
+	color: #b3d1f0;
+	position: relative;
+}
+.footer-content {
+	text-align: center;
+	font: normal 13px Arial, Helvetica, sans-serif;
+	padding: 15px;
+	padding-bottom: 0;
+}
+.footer-content p.title {
+	font-family: arial;
+	color: #333;
+	margin: 10px;
+	font-weight: bold;
+	font-size: 16px;
+}
+.footer-content .info {
+	color: #333;
+	line-height: 22px;
+}
+#content-c {
+	display: inline-block;
+	clear: both;
+	width: 100%;
+}
+/* Thêm CSS để điều chỉnh vị trí của tên người dùng trong dropdown */
+.dropdown-menu .text-gray-600 {
+    margin-top: 5px; /* Điều chỉnh giá trị theo ý muốn của bạn */
+}
+
+/* Thêm CSS để điều chỉnh margin và màu sắc của dropdown item */
+.dropdown-menu-right .dropdown-item {
+    background-color: #4e73df;
+    margin: 0;
+    padding: 10px 20px; /* Điều chỉnh padding nếu cần */
+    color: #333; /* Màu sắc chữ */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.dropdown-menu-right .dropdown-item:hover {
+    background-color: #4e73df; /* Màu sắc khi hover */
+    color: #fff; /* Màu sắc chữ khi hover */
+}
+/* Thêm CSS để điều chỉnh nền và padding của dropdown menu */
+.dropdown-menu-right {
+    background-color: #fff; /* Màu sắc nền của dropdown menu */
+    padding: 0; /* Điều chỉnh padding nếu cần */
+    border: 1px solid #ddd; /* Đường viền của dropdown menu */
+}
