@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\CauHoi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+
 class CauHoiSeeder extends Seeder
 {
     /**
@@ -12,19 +14,23 @@ class CauHoiSeeder extends Seeder
      */
     public function run(): void
     {
+        $duLieuJSON = file_get_contents(storage_path('app/ket_qua.json'));
+        $duLieu_ketqua = json_decode($duLieuJSON, true);
+        $cacCauHoiId = array_column($duLieu_ketqua, 'cau_hoi_id');
 
-        $duLieuJSON = file_get_contents(storage_path('app/cau_hoi_data_tong_hop.json'));
-        $duLieu = json_decode($duLieuJSON, true);
+        $duLieuJSON_cauhoi = file_get_contents(storage_path('app/cau_hoi.json'));
+        $duLieu_cauhoi = json_decode($duLieuJSON_cauhoi, true);
+
+        $cacCauHoiLoc = array_filter($duLieu_cauhoi, function ($cauHoi) use ($cacCauHoiId) {
+            return in_array($cauHoi['id'], $cacCauHoiId);
+        });
 
         // Duyệt qua dữ liệu và chèn vào cơ sở dữ liệu
-        foreach ($duLieu as $item) {
-            DB::table('cau_hoi')->insert([
-                'de_thi_id' => $item['de_tai_ID'],
-                'id'=>$item['id'],
-                'noi_dung' => $item['noi_dung'],
-                // Thêm các trường khác nếu cần
-                'created_at' => now(),
-                'updated_at' => now(),
+        foreach ($cacCauHoiLoc as $cauHoi) {
+            CauHoi::create([
+                'id'=>$cauHoi['id'],
+                'de_thi_id' => 1,
+                'noi_dung' => $cauHoi['question'],
             ]);
         }
     }

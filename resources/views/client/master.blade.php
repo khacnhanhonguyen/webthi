@@ -14,7 +14,7 @@
     <div class="menu-top">
       <div class="left">
         <ul>
-          <li><a href="{{ route('route.dashboard') }}"><img style="width: 25px;" src="trangchu/home.png"></a></li>
+          <li><a href="{{ route('route.dashboard') }}"><img style="width: 25px;" src="{{ asset('trangchu/home.png') }}"></a></li>
           <li><a href="{{ route('route.dashboard') }}">Trang chủ</a></li>
           <li><a href="#">Giới thiệu</a></li>
           <li><a href="{{ route('route.thamgia') }}">Tham gia</a></li>
