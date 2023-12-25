@@ -17,6 +17,7 @@ class DeThiSeeder extends Seeder
             // Add other fields if needed
             'anh_de_thi'=>'wallpaperflare.com_wallpaper_1.jpg',
             'ngay_bat_dau' => now(),
+            'thoi_gian_lam_bai' => 2700, // 45 phút
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -25,6 +26,7 @@ class DeThiSeeder extends Seeder
             // Add other fields if needed
             'anh_de_thi'=>'wallpaperflare.com_wallpaper.jpg',
             'ngay_bat_dau' => now(),
+            'thoi_gian_lam_bai' => 2700, // 45 phút
             'created_at' => now(),
             'updated_at' => now(),
         ]);
