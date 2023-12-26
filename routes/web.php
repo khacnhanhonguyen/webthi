@@ -6,6 +6,7 @@ use App\Http\Controllers\trangchuClientController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\thichinhthucController;
 use App\Http\Controllers\thithuController;
+use App\Http\Controllers\thongtincuocthiController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 /*
@@ -40,7 +41,7 @@ Route::post('/thithu/submit', [thithuController::class, 'submitPracticeTest'])->
 //tham gia thi
 Route::get('/thithuc/start/{de_thi_id}', [thichinhthucController::class, 'startPractice'])->name('route.thithuc.hien');
 Route::post('/thithuc/submit', [thichinhthucController::class, 'submitPractice'])->name('route.thithuc.nop');
-
+Route::get('/xemthongtin/{de_thi_id}', [thongtincuocthiController::class, 'xemcuocthi'])->name('route.xemcuocthi.hien');
 
 //email
 Route::get('/email/verify', function () {
