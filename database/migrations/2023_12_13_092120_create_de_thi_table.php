@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('ngay_bat_dau')->nullable();
             $table->date('ngay_ket_thuc')->nullable();
             $table->integer('thoi_gian_lam_bai')->default(2700);
+            $table->boolean('mo_thi')->default(0);
             $table->text('mo_ta_cuoc_thi')->nullable();
             $table->timestamps();
         });

@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class DiemCuocThi extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['user_id', 'de_thi_id', 'diem'];
+    protected $table = 'diem_cuoc_thi';
+    protected $fillable = ['user_id', 'de_thi_id', 'diem', 'thoi_gian_thi'];
 
     // Mối quan hệ với người dùng
     public function user()

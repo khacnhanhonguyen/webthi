@@ -4,7 +4,9 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\trangchuClientController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\thichinhthucController;
 use App\Http\Controllers\thithuController;
+use App\Http\Controllers\thongtincuocthiController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 /*
@@ -33,11 +35,13 @@ Route::prefix('/')->middleware('mychecklogin')->group(function () {
 Route::get('/logout', [loginController::class, 'logoutProcess'])->name('route.logout');
 // routes/web.php
 
-//thi
+//thi thu
 Route::get('/thithu/start/{de_thi_id}', [thithuController::class, 'startPracticeTest'])->name('route.thithu.hien');
 Route::post('/thithu/submit', [thithuController::class, 'submitPracticeTest'])->name('route.thithu.nop');
-
-
+//tham gia thi
+Route::get('/thithuc/start/{de_thi_id}', [thichinhthucController::class, 'startPractice'])->name('route.thithuc.hien');
+Route::post('/thithuc/submit', [thichinhthucController::class, 'submitPractice'])->name('route.thithuc.nop');
+Route::get('/xemthongtin/{de_thi_id}', [thongtincuocthiController::class, 'xemcuocthi'])->name('route.xemcuocthi.hien');
 
 //email
 Route::get('/email/verify', function () {
