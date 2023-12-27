@@ -35,6 +35,21 @@ Route::prefix('/admin')->middleware('checkRole:1,2')->group(function () {
 
     Route::get('/dethi', [AdminController::class, 'showDethi'])->name('admin.dethi.show');
     Route::delete('/dethi/{id}', [AdminController::class, 'deleteDeThi'])->name('admin.dethi.delete');
+    Route::get('/dethi/create',  [AdminController::class, 'taoDethi'])->name('admin.dethi.create');
+    Route::post('/dethi/create-process', [AdminController::class, 'taoDethi_process'])->name('admin.dethi.create-process');
+    Route::get('/dethi/{id}/edit', [AdminController::class, 'editDeThi'])->name('admin.dethi.edit');
+    Route::put('/dethi/{id}/update', [AdminController::class, 'updateDeThi'])->name('admin.dethi.update');
+
+
+    //cau hoi
+    // routes/web.php hoặc routes/admin.php
+    Route::get('/de-thi/{de_thi_id}/danh-sach-cau-hoi', [AdminController::class, 'showDanhSachCauHoi'])
+    ->name('admin.dethi.danh-sach-cau-hoi');
+    Route::get('/cau-hoi/{id}/delete',[AdminController::class, 'deleteCauHoi'] )->name('admin.cauhoi.delete');
+    Route::get('/cau-hoi/{id}/edit', [AdminController::class, 'editCauHoi'] )->name('admin.cauhoi.edit');
+    Route::post('/cau-hoi/{id}/update',[AdminController::class, 'updateCauHoi'] )->name('admin.cauhoi.update');
+    Route::get('de-thi/{de_thi_id}/cau-hoi/create', [AdminController::class, 'createCauHoi'])->name('admin.cauhoi.create');
+    Route::post('de-thi/cau-hoi/store', [AdminController::class, 'storeCauHoi'])->name('admin.cauhoi.store');
 });
 
 //login

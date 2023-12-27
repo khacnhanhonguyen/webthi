@@ -37,8 +37,8 @@
                 <td>{{ $deThi->ngay_bat_dau }}</td>
                 <td>{{ $deThi->ngay_ket_thuc }}</td>
                 <td>
-                    <a href="" class="btn btn-info">Danh sách câu hỏi</a>
-                    <a href="" class="btn btn-warning">Sửa</a>
+                    <a href="{{ route('admin.dethi.danh-sach-cau-hoi', ['de_thi_id' => $deThi->id]) }}" class="btn btn-info">Danh sách câu hỏi</a>
+                    <a href="{{ route('admin.dethi.edit', ['id'=>$deThi->id]) }}" class="btn btn-warning">Sửa</a>
                     <a href="javascript:void(0);" class="btn btn-danger" onclick="deleteDeThi({{ $deThi->id }})">Xóa</a>
                     {{-- Thêm thuộc tính dữ liệu để lưu đường dẫn xoá --}}
                 </td>
