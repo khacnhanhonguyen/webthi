@@ -13,22 +13,22 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
         if (Auth::check()) {
-            // Kiểm tra giá trị cột "phanquyen"
             $userRole = Auth::user()->phanquyen;
 
-            // Kiểm tra nếu là admin hoặc user có quyền cần thiết
-            if ($userRole == $role) {
+            // Check if the user's role is in the array of allowed roles
+            if (in_array($userRole, $roles)) {
                 return $next($request);
             }
 
-            // Nếu không đúng quyền, có thể chuyển hướng hoặc trả về lỗi
+            // If the user's role is not in the allowed roles, return 403
             return abort(403, 'Unauthorized action.');
         }
 
-        // Cho phép người dùng chưa đăng nhập tiếp tục xử lý request
+        // If the user is not authenticated, redirect to login
         return redirect()->route('route.login');
     }
+
 }

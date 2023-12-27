@@ -23,8 +23,21 @@ use Illuminate\Http\Request;
 Route::get('/dashboard', [trangchuClientController::class, 'showtrangchu'])->middleware(['auth','verified'])->name('route.dashboard.login');
 Route::get('/thamgia', [trangchuClientController::class, 'showtrangthamgia'])->name('route.thamgia');
 
-Route::get('/admin/dashboard', [AdminController::class, 'showtrangadmin'])->middleware('checkRole:1')->name('admin.dashboard');
 
+Route::prefix('/admin')->middleware('checkRole:1,2')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'showtrangadmin'])->name('admin.dashboard');
+    Route::get('/user/show', [AdminController::class, 'showUser'])->name('admin.showlistuser');
+    Route::get('/users/{id}', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
+    Route::get('/users/create', [AdminController::class, 'showCreateForm'])->name('admin.users.create');
+    Route::post('/users/create-process', [AdminController::class, 'create'])->name('admin.users.create-process');
+    Route::get('/users/{id}/edit', [AdminController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/users/{id}', [AdminController::class, 'update'])->name('admin.users.update');
+
+    Route::get('/dethi', [AdminController::class, 'showDethi'])->name('admin.dethi.show');
+    Route::delete('/dethi/{id}', [AdminController::class, 'deleteDeThi'])->name('admin.dethi.delete');
+});
+
+//login
 Route::prefix('/')->middleware('mychecklogin')->group(function () {
     Route::get('/', [trangchuClientController::class, 'showtrangchu'])->name('route.dashboard');
     Route::get('/login', [loginController::class, 'showtranglogin'])->name('route.login');
