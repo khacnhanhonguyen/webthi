@@ -7,6 +7,8 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\thichinhthucController;
 use App\Http\Controllers\thithuController;
 use App\Http\Controllers\thongtincuocthiController;
+use App\Http\Controllers\YeuCauDeTaiController;
+use App\Models\YeuCauDeTai;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 /*
@@ -50,6 +52,8 @@ Route::prefix('/admin')->middleware('checkRole:1,2')->group(function () {
     Route::post('/cau-hoi/{id}/update',[AdminController::class, 'updateCauHoi'] )->name('admin.cauhoi.update');
     Route::get('de-thi/{de_thi_id}/cau-hoi/create', [AdminController::class, 'createCauHoi'])->name('admin.cauhoi.create');
     Route::post('de-thi/cau-hoi/store', [AdminController::class, 'storeCauHoi'])->name('admin.cauhoi.store');
+
+    Route::get('/yeucau-show', [YeuCauDeTaiController::class, 'showdanhsachyeucaudetai'])->name('admin.yeucau.show');
 });
 
 //login

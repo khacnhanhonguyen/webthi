@@ -57,17 +57,10 @@
                                     <a class="nav-link" href="{{route('admin.dethi.create')}}">Tạo đề thi</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            {{-- <a class="nav-link collapsed" href="{{route('admin.yeucau.show')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Câu hỏi
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#">Danh sách câu hỏi</a>
-                                    <a class="nav-link" href="#">Thêm câu hỏi</a>
-                                </nav>
-                            </div>
+                                Yêu cầu
+                            </a> --}}
                             @if (auth()->user()->phanquyen == 2)
                             <div class="sb-sidenav-menu-heading">Người dùng</div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#nguoidung" aria-expanded="false" aria-controls="nguoidung">
