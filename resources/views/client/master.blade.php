@@ -16,9 +16,8 @@
         <ul>
           <li><a href="{{ route('route.dashboard') }}"><img style="width: 25px;" src="{{ asset('trangchu/home.png') }}"></a></li>
           <li><a href="{{ route('route.dashboard') }}">Trang chủ</a></li>
-          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="{{ route('route.gioithieu.hien') }}">Giới thiệu</a></li>
           <li><a href="{{ route('route.thamgia') }}">Tham gia</a></li>
-          <li><a href="">Kết quả cuộc thi</a></li>
         </ul>
       </div>
       <div class="right">

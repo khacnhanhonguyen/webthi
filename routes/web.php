@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\gioithieucontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\trangchuClientController;
 use App\Http\Controllers\loginController;
@@ -72,6 +73,8 @@ Route::prefix('/')->middleware('mychecklogin')->group(function () {
 Route::get('/logout', [loginController::class, 'logoutProcess'])->name('route.logout');
 // routes/web.php
 
+//gioithieu
+Route::get('/gioithieu', [gioithieucontroller::class, 'showtranggioithieu'])->name('route.gioithieu.hien');
 //thi thu
 Route::get('/thithu/start/{de_thi_id}', [thithuController::class, 'startPracticeTest'])->name('route.thithu.hien');
 Route::post('/thithu/submit', [thithuController::class, 'submitPracticeTest'])->name('route.thithu.nop');

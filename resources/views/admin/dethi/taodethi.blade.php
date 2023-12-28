@@ -47,7 +47,10 @@
                     <span class="input-group-text">phút</span>
                 </div>
             </div>
-
+            <div class="mb-3">
+                <input type="checkbox" name="mo_thi" >
+                <label for="mo_thi" class="form-check-label">Mở thi</label>
+            </div>
             <div class="mb-3">
                 <label for="mo_ta_cuoc_thi" class="form-label">Mô tả cuộc thi:</label>
                 <textarea class="form-control" name="mo_ta_cuoc_thi" rows="5"></textarea>

@@ -165,7 +165,8 @@ class AdminController extends Controller
         $deThi->ngay_bat_dau = $request->input('ngay_bat_dau');
         $deThi->ngay_ket_thuc = $request->input('ngay_ket_thuc');
         $deThi->mo_ta_cuoc_thi = $request->input('mo_ta_cuoc_thi');
-
+        $moThi = $request->has('mo_thi') ? true : false;
+        $deThi->mo_thi = $moThi;
         // Tạo thư mục public/images nếu chưa tồn tại
         if (!file_exists(public_path('images'))) {
             mkdir(public_path('images'), 0755, true);
@@ -214,7 +215,7 @@ class AdminController extends Controller
             'phut' => 'required|integer|min:0',
             'mo_ta_cuoc_thi' => 'nullable|string',
         ]);
-
+        $moThi = $request->has('mo_thi') ? true : false;
         // Cập nhật thông tin đề thi
         $deThi->tieu_de = $request->input('tieu_de');
         $deThi->ngay_bat_dau = $request->input('ngay_bat_dau');
@@ -240,6 +241,7 @@ class AdminController extends Controller
         $gio = $request->input('gio');
         $phut = $request->input('phut');
         $thoiGianLamBai = $gio * 60 * 60 + $phut * 60;
+        $deThi->mo_thi = $moThi;
         $deThi->thoi_gian_lam_bai = $thoiGianLamBai;
 
         $deThi->save();

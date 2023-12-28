@@ -48,15 +48,18 @@
             <div class="mb-3">
                 <label for="thoi_gian_lam_bai" class="form-label">Thời gian làm bài:</label>
                 <div class="input-group">
-                    <input type="number" class="form-control" name="gio" value="{{ floor($deThi->thoi_gian_lam_bai / 60) }}" required>
+                    <input type="number" class="form-control" name="gio" value="{{ floor($deThi->thoi_gian_lam_bai / 3600) }}" required>
                     <span class="input-group-text">giờ</span>
                 </div>
                 <div class="input-group mt-2">
-                    <input type="number" class="form-control" name="phut" value="{{ $deThi->thoi_gian_lam_bai % 60 }}" required>
+                    <input type="number" class="form-control" name="phut" value="{{ floor($deThi->thoi_gian_lam_bai % 3600)/60 }}" required>
                     <span class="input-group-text">phút</span>
                 </div>
             </div>
-
+            <div class="mb-3">
+                <input type="checkbox" name="mo_thi" {{ $deThi->mo_thi ? 'checked' : '' }}>
+                <label for="mo_thi" class="form-check-label">Mở thi</label>
+            </div>
             <div class="mb-3">
                 <label for="mo_ta_cuoc_thi" class="form-label">Mô tả cuộc thi:</label>
                 <textarea class="form-control" name="mo_ta_cuoc_thi" rows="5">{{ $deThi->mo_ta_cuoc_thi }}</textarea>
