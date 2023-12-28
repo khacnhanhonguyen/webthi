@@ -15,7 +15,7 @@ class DeThiSeeder extends Seeder
         DB::table('de_thi')->insert([
             'tieu_de' => 'Tìm hiểu Nghị quyết Đại hội Đoàn toàn quốc lần thứ XII',
             // Add other fields if needed
-            'anh_de_thi'=>'wallpaperflare.com_wallpaper_1.jpg',
+            'anh_de_thi'=>'658c92c4da6a1_1703711428.jpg',
             'ngay_bat_dau' => now(),
             'thoi_gian_lam_bai' => 2700, // 45 phút
             'created_at' => now(),

@@ -38,7 +38,7 @@ class loginController extends Controller
             $userRole = Auth::user()->phanquyen;
 
             // Kiểm tra nếu là admin
-            if ($userRole == 1) {
+            if ($userRole == 1 || $userRole == 2) {
                 return redirect()->route('admin.dashboard');
             }
 

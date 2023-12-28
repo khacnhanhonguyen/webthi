@@ -22,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'phanquyen',
     ];
 
     /**
@@ -46,5 +47,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function diemCuocThi()
     {
         return $this->hasMany(DiemCuocThi::class);
+    }
+    public function yeuCauDuyet()
+    {
+        return $this->hasMany(YeuCauDeTai::class, 'nguoi_duyet_id');
     }
 }

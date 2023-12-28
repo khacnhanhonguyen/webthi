@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\gioithieucontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\trangchuClientController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\thichinhthucController;
 use App\Http\Controllers\thithuController;
 use App\Http\Controllers\thongtincuocthiController;
+use App\Http\Controllers\YeuCauDeTaiController;
+use App\Models\YeuCauDeTai;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 /*
@@ -23,8 +26,43 @@ use Illuminate\Http\Request;
 Route::get('/dashboard', [trangchuClientController::class, 'showtrangchu'])->middleware(['auth','verified'])->name('route.dashboard.login');
 Route::get('/thamgia', [trangchuClientController::class, 'showtrangthamgia'])->name('route.thamgia');
 
-Route::get('/admin/dashboard', [AdminController::class, 'showtrangadmin'])->middleware('checkRole:1')->name('admin.dashboard');
 
+Route::prefix('/admin')->middleware('checkRole:1,2')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'showtrangadmin'])->name('admin.dashboard');
+    Route::get('/user/show', [AdminController::class, 'showUser'])->name('admin.showlistuser');
+    Route::get('/users/{id}', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
+    Route::get('/users/create', [AdminController::class, 'showCreateForm'])->name('admin.users.create');
+    Route::post('/users/create-process', [AdminController::class, 'create'])->name('admin.users.create-process');
+    Route::get('/users/{id}/edit', [AdminController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/users/{id}', [AdminController::class, 'update'])->name('admin.users.update');
+
+    Route::get('/dethi', [AdminController::class, 'showDethi'])->name('admin.dethi.show');
+    Route::delete('/dethi/{id}', [AdminController::class, 'deleteDeThi'])->name('admin.dethi.delete');
+    Route::get('/dethi/create',  [AdminController::class, 'taoDethi'])->name('admin.dethi.create');
+    Route::post('/dethi/create-process', [AdminController::class, 'taoDethi_process'])->name('admin.dethi.create-process');
+    Route::get('/dethi/{id}/edit', [AdminController::class, 'editDeThi'])->name('admin.dethi.edit');
+    Route::put('/dethi/{id}/update', [AdminController::class, 'updateDeThi'])->name('admin.dethi.update');
+
+
+    //cau hoi
+    // routes/web.php hoặc routes/admin.php
+    Route::get('/de-thi/{de_thi_id}/danh-sach-cau-hoi', [AdminController::class, 'showDanhSachCauHoi'])
+    ->name('admin.dethi.danh-sach-cau-hoi');
+    Route::get('/cau-hoi/{id}/delete',[AdminController::class, 'deleteCauHoi'] )->name('admin.cauhoi.delete');
+    Route::get('/cau-hoi/{id}/edit', [AdminController::class, 'editCauHoi'] )->name('admin.cauhoi.edit');
+    Route::post('/cau-hoi/{id}/update',[AdminController::class, 'updateCauHoi'] )->name('admin.cauhoi.update');
+    Route::get('de-thi/{de_thi_id}/cau-hoi/create', [AdminController::class, 'createCauHoi'])->name('admin.cauhoi.create');
+    Route::post('de-thi/cau-hoi/store', [AdminController::class, 'storeCauHoi'])->name('admin.cauhoi.store');
+
+    Route::get('/yeucau-show', [YeuCauDeTaiController::class, 'showdanhsachyeucaudetai'])->name('admin.yeucau.show');
+    Route::get('/yeu-cau-de-thi/create', [YeuCauDeTaiController::class, 'create'])->name('yeucaudethi.create');
+    Route::post('/yeu-cau-de-thi/store', [YeuCauDeTaiController::class, 'store'])->name('yeucaudethi.store');
+    Route::get('/yeucau-show-giaovien', [YeuCauDeTaiController::class, 'showdanhsachyeucaudetaicuagiaovien'])->name('giaovien.yeucau.show');
+    Route::get('/download-pdf/{yeuCauDeTai}', [YeuCauDeTaiController::class, 'downloadPDF'])->name('download-pdf');
+    Route::post('/yeucaudetai/{id}/duyet', [YeuCauDeTaiController::class, 'duyet'])->name('yeucaudetai.duyet');
+});
+
+//login
 Route::prefix('/')->middleware('mychecklogin')->group(function () {
     Route::get('/', [trangchuClientController::class, 'showtrangchu'])->name('route.dashboard');
     Route::get('/login', [loginController::class, 'showtranglogin'])->name('route.login');
@@ -35,6 +73,8 @@ Route::prefix('/')->middleware('mychecklogin')->group(function () {
 Route::get('/logout', [loginController::class, 'logoutProcess'])->name('route.logout');
 // routes/web.php
 
+//gioithieu
+Route::get('/gioithieu', [gioithieucontroller::class, 'showtranggioithieu'])->name('route.gioithieu.hien');
 //thi thu
 Route::get('/thithu/start/{de_thi_id}', [thithuController::class, 'startPracticeTest'])->name('route.thithu.hien');
 Route::post('/thithu/submit', [thithuController::class, 'submitPracticeTest'])->name('route.thithu.nop');

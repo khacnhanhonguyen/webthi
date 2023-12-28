@@ -107,7 +107,7 @@ class thichinhthucController extends Controller
         // ...
 
         // Trả về kết quả
-        return view('client.ketqua', [
+        return view('client.ketquathuc', [
             'socaudung' => $socaudung,
             'de_thi_id'=>$de_thi_id,
             'diem' => $diem,
