@@ -57,10 +57,25 @@
                                     <a class="nav-link" href="{{route('admin.dethi.create')}}">Tạo đề thi</a>
                                 </nav>
                             </div>
-                            {{-- <a class="nav-link collapsed" href="{{route('admin.yeucau.show')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#yeucau" aria-expanded="false" aria-controls="yeucau">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Yêu cầu
-                            </a> --}}
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="yeucau" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{route('giaovien.yeucau.show')}}">Danh sách Đề Thi đang yêu cầu</a>
+                                    <a class="nav-link" href="{{route('yeucaudethi.create')}}">Tạo Yêu cầu</a>
+                                </nav>
+                            </div>
+                            @if (auth()->user()->phanquyen == 2)
+                                <a class="nav-link collapsed" href="{{route('admin.yeucau.show')}}" >
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Danh sách Yêu cầu
+                                </a>
+                            @endif
+
                             @if (auth()->user()->phanquyen == 2)
                             <div class="sb-sidenav-menu-heading">Người dùng</div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#nguoidung" aria-expanded="false" aria-controls="nguoidung">

@@ -54,6 +54,11 @@ Route::prefix('/admin')->middleware('checkRole:1,2')->group(function () {
     Route::post('de-thi/cau-hoi/store', [AdminController::class, 'storeCauHoi'])->name('admin.cauhoi.store');
 
     Route::get('/yeucau-show', [YeuCauDeTaiController::class, 'showdanhsachyeucaudetai'])->name('admin.yeucau.show');
+    Route::get('/yeu-cau-de-thi/create', [YeuCauDeTaiController::class, 'create'])->name('yeucaudethi.create');
+    Route::post('/yeu-cau-de-thi/store', [YeuCauDeTaiController::class, 'store'])->name('yeucaudethi.store');
+    Route::get('/yeucau-show-giaovien', [YeuCauDeTaiController::class, 'showdanhsachyeucaudetaicuagiaovien'])->name('giaovien.yeucau.show');
+    Route::get('/download-pdf/{yeuCauDeTai}', [YeuCauDeTaiController::class, 'downloadPDF'])->name('download-pdf');
+    Route::post('/yeucaudetai/{id}/duyet', [YeuCauDeTaiController::class, 'duyet'])->name('yeucaudetai.duyet');
 });
 
 //login

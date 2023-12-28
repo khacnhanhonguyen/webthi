@@ -24,7 +24,6 @@
                                 <th>Người nộp</th>
                                 <th>Người duyệt</th>
                                 <th>Trạng thái duyệt</th>
-                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,14 +41,6 @@
                                         @else
                                             <i class="fas fa-times-circle text-danger"></i> Không xác định
                                         @endif
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('yeucaudetai.duyet', $yeuCau->id) }}" method="post">
-                                            @csrf
-                                            @method('post')
-                                            <button type="submit" class="btn btn-success">Duyệt</button>
-                                        </form>
-                                        <a href="{{ route('download-pdf', ['yeuCauDeTai' => $yeuCau->id]) }}" class="btn btn-primary">Tải xuống</a>
                                     </td>
                                 </tr>
                             @endforeach
