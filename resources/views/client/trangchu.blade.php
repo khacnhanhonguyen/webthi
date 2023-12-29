@@ -55,8 +55,11 @@
                 I. ĐỐI TƯỢNG DỰ THI
                     Người Việt Nam ở trong nước; người Việt Nam ở nước ngoài và người nước ngoài đang sinh sống, học tập và làm việc trên lãnh thổ Việt Nam.
 
-                    II. NỘI DUNG THI
-                    1. Luật Phòng, chống tác hại của rượu, bia năm 2019 và các văn bản hướng dẫn thi hành có liên quan;
+                </span>
+
+                <span><br>
+                II. NỘI DUNG THI<br>
+                    1. Luật Phòng, chống tác hại của rượu, bia năm 2019 và các văn bản hướng dẫn thi hành có liên quan;<br>
                     2.  Nghị định số 82/2020/NĐ-CP ngày 15/7/2020 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp; hành chính tư pháp; hôn nhân và gia đình; thi hành án dân sự; phá sản doanh nghiệp, hợp tác xã.
                 </span>
             </div>

@@ -29,7 +29,7 @@ class CauHoiSeeder extends Seeder
         foreach ($cacCauHoiLoc as $cauHoi) {
             CauHoi::create([
                 'id'=>$cauHoi['id'],
-                'de_thi_id' => 1,
+                'de_thi_id' => 3,
                 'noi_dung' => $cauHoi['question'],
             ]);
         }
