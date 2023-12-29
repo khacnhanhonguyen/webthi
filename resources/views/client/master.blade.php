@@ -57,14 +57,15 @@
     <div id="google-analytics"></div>
         <div class="footer-c">
             <div class="footer-content">
-                <p class="title">CỔNG THÔNG TIN ĐIỆN TỬ BỘ TƯ PHÁP</p>
+                <p class="title">CỔNG THÔNG TIN TRƯỜNG ĐẠI HỌC BÌNH DƯƠNG</p>
                 <div class="info">
                     <p>
-                        <strong>Địa chỉ:</strong> 60 Trần Phú, Ba Đình, Hà Nội. <strong>024.62739718 - 024.62739359.</strong>
-                        <strong>Email:</strong> banbientap@moj.gov.vn; cntt@moj.gov.vn.
+                        <strong>Địa chỉ:</strong> Trường Đại Học Bình Dương. 
+                        <strong>SDT:</strong>0948422458.
+                        <strong>Email:</strong> 18050128@student.bdu.edu.vn
                     </p>
-                    <p>Giấy phép cung cấp thông tin trên internet số 28/GP-BC ngày 25/03/2005.</p>
-                    <p>Trưởng Ban biên tập: Nguyễn Tiến Dũng - Cục trưởng Cục Công nghệ thông tin.</p>
+                    <p>Giấy phép cung cấp thông tin trên internet số 28/GP-BC ngày 29/12/2023.</p>
+                    <p>Trưởng Ban biên tập: Nguyễn Khắc Nhân - Sinh viên Trường Đại Học Bình Dương.</p>
                     <p>Ghi rõ nguồn Cổng thông tin điện tử Bộ Tư pháp (www.moj.gov.vn) khi trích dẫn lại tin từ địa chỉ này.</p>
                 </div>
             </div>

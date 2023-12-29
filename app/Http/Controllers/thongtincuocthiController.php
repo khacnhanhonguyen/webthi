@@ -21,18 +21,30 @@ class thongtincuocthiController extends Controller
 
         // Kiểm tra xem người dùng đã thi hay chưa
         $user = auth()->user();
-        $hasTakenPractice = DiemCuocThi::where('user_id', $user->id)
+        if ($user) {
+            $hasTakenPractice = DiemCuocThi::where('user_id', $user->id)
             ->where('de_thi_id', $de_thi_id)
             ->exists();
-        $diemCuocThi = DiemCuocThi::where('user_id', $user->id)
-            ->where('de_thi_id', $de_thi_id)
-            ->first(); // Lấy điểm cuộc thi của người dùng (nếu có)
+            $diemCuocThi = DiemCuocThi::where('user_id', $user->id)
+                ->where('de_thi_id', $de_thi_id)
+                ->first(); // Lấy điểm cuộc thi của người dùng (nếu có)
 
-        if ($hasTakenPractice) {
-            // Người dùng đã thi, chuyển hướng hoặc hiển thị trang thông báo
+            if ($hasTakenPractice) {
+                // Người dùng đã thi, chuyển hướng hoặc hiển thị trang thông báo
+                return view('client.xemthongtincuocthi', [
+                    'deThi' => $deThi,
+                    'diemCuocThi' => $diemCuocThi,
+                    'participants' => $participants,
+                ]);
+            }else{
+                return view('client.xemthongtincuocthi', [
+                    'deThi' => $deThi,
+                    'participants' => $participants,
+                ]);
+            }
+        }else{
             return view('client.xemthongtincuocthi', [
                 'deThi' => $deThi,
-                'diemCuocThi' => $diemCuocThi,
                 'participants' => $participants,
             ]);
         }
